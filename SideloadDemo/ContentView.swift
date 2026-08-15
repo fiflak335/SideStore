@@ -4,6 +4,7 @@ struct ContentView: View {
     private enum Tab {
         case home
         case device
+        case download
         case about
     }
 
@@ -18,6 +19,10 @@ struct ContentView: View {
             DeviceInfoView()
                 .tabItem { Label("Urządzenie", systemImage: "info.circle") }
                 .tag(Tab.device)
+
+            DownloadView()
+                .tabItem { Label("Pobierz", systemImage: "arrow.down.circle") }
+                .tag(Tab.download)
 
             AboutView()
                 .tabItem { Label("O aplikacji", systemImage: "questionmark.circle") }

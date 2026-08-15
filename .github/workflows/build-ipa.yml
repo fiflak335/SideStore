@@ -4,10 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    tags: ['v*']
 
 jobs:
   build:
     runs-on: macos-15
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -37,3 +40,9 @@ jobs:
         with:
           name: SideloadDemo.ipa
           path: SideloadDemo.ipa
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: SideloadDemo.ipa
