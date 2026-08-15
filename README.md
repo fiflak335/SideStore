@@ -62,6 +62,14 @@ Workflow `.github/workflows/build-ipa.yml` buduje **niepodpisane** IPA (architek
 3. Pobierz artefakt `SideloadDemo.ipa` (Artifacts).
 4. Zainstaluj przez **Sideloadly** (podpisze lokalnie Twoim Apple ID).
 
+## Pobieranie IPA z poziomu aplikacji
+
+Aplikacja ma zakładkę **Pobierz** — pobiera najnowszy plik `.ipa` prosto z **GitHub Releases**:
+`https://github.com/fiflak335/SideStore/releases/latest/download/SideloadDemo.ipa` i umożliwia zapisanie go w aplikacji **Pliki**.
+
+Nowe wydanie publikujesz tagiem:
+`git tag v1.1.0 && git push origin v1.1.0` — workflow sam zbuduje IPA i dołączy je do Releases.
+
 ## Zmiana nazwy / identyfikatora aplikacji
 
 - **Nazwa wyświetlana**: `INFOPLIST_KEY_CFBundleDisplayName` w `project.pbxproj`.
